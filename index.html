@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>给寿星的礼物 ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        "Segoe UI",
+        "Microsoft YaHei",
+        sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #fff 0 2%, transparent 3%),
+        linear-gradient(135deg, #fff8fb, #ffeaf2);
+
+    color: #654c57;
+    overflow-x: hidden;
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.card {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(255,255,255,.9);
+    border: 1px solid #f5d5e1;
+    border-radius: 30px;
+    padding: 35px 25px;
+    box-shadow:
+        0 20px 60px rgba(190,110,140,.15);
+    backdrop-filter: blur(10px);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+.main-btn {
+    background: linear-gradient(135deg,#e997b2,#d87599);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(210,110,145,.25);
+    transition: .3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+/* =========================
+   OPENING
+========================= */
+
+#opening {
+    background:
+        radial-gradient(circle at 30% 20%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 70% 70%, #f5bfd1 0 2px, transparent 3px),
+        linear-gradient(135deg,#fff9fb,#ffeaf2);
+}
+
+.opening-content {
+    animation: fadeUp 1.3s ease;
+}
+
+.ribbon {
+    font-size: 65px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.opening-small {
+    color: #aa8995;
+    margin: 12px 0;
+    letter-spacing: 2px;
+}
+
+.opening-title {
+    font-size: 2.4rem;
+    color: #c96788;
+    margin: 10px 0 15px;
+}
+
+.typing-line {
+    min-height: 55px;
+    line-height: 1.8;
+    color: #80626d;
+    margin-bottom: 28px;
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-card h2 {
+    color: #c76b8b;
+}
+
+.envelope-card p {
+    color: #9b7a86;
+    margin-top: 8px;
+}
+
+.envelope {
+    width: 240px;
+    height: 155px;
+    background: #f2b4c9;
+    margin: 35px auto 22px;
+    position: relative;
+    border-radius: 12px;
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 30px rgba(180,90,125,.2);
+
+    transition: .35s;
+}
+
+.envelope:hover {
+    transform: translateY(-8px) rotate(-2deg);
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 82px solid #df8eab;
+}
+
+.envelope-heart {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 61%;
+    transform: translate(-50%,-50%);
+
+    font-size: 35px;
+    color: white;
+}
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-card {
+    animation: fadeUp .8s ease;
+}
+
+.cake {
+    font-size: 65px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.birthday-title {
+    color: #cc6286;
+    font-size: 2.6rem;
+    margin: 12px 0;
+    animation: pulse 1.5s infinite;
+}
+
+.birthday-sub {
+    color: #a17c89;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.section-title {
+    color: #c76b8b;
+    margin: 35px 0 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.polaroid {
+    background: white;
+    padding: 9px 9px 18px;
+    border-radius: 5px;
+
+    box-shadow:
+        0 8px 20px rgba(100,70,80,.12);
+
+    transition: .35s;
+}
+
+.polaroid:nth-child(1) {
+    transform: rotate(-4deg);
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.polaroid:hover {
+    transform:
+        translateY(-7px)
+        rotate(0)
+        scale(1.04);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 3px;
+    background: #f8e8ee;
+}
+
+.caption {
+    margin-top: 9px;
+    font-size: .76rem;
+    line-height: 1.4;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+    margin-top: 35px;
+}
+
+.letter-paper {
+    background:
+        linear-gradient(
+            rgba(255,255,255,.94),
+            rgba(255,251,248,.94)
+        );
+
+    border: 1px solid #efd9df;
+    border-radius: 18px;
+
+    padding: 25px;
+
+    text-align: left;
+
+    line-height: 2;
+
+    min-height: 250px;
+
+    box-shadow:
+        inset 0 0 25px rgba(210,150,170,.08);
+}
+
+#typedLetter {
+    white-space: pre-line;
+}
+
+/* =========================
+   MYSTERY GIFT
+========================= */
+
+.gift-section {
+    margin-top: 45px;
+}
+
+.gift {
+    font-size: 85px;
+    margin: 25px 0;
+    cursor: pointer;
+
+    animation:
+        giftFloat 1.6s infinite ease-in-out;
+
+    transition: .3s;
+}
+
+.gift:hover {
+    transform: scale(1.12);
+}
+
+.final-message {
+    animation: fadeUp .8s ease;
+}
+
+.final-message h2 {
+    color: #c96788;
+    margin-bottom: 15px;
+}
+
+.final-message p {
+    line-height: 1.9;
+    color: #795c67;
+}
+
+.signature {
+    margin-top: 25px;
+    color: #c76b8b;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+
+    width: 8px;
+    height: 14px;
+
+    pointer-events: none;
+
+    animation: fall linear forwards;
+
+    z-index: 999;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+
+    pointer-events: none;
+    z-index: 998;
+
+    animation: heartRise 5s linear forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes pulse {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes giftFloat {
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartRise {
+    from {
+        transform:
+            translateY(0)
+            scale(.8);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:550px) {
+
+    .card {
+        padding: 30px 17px;
+    }
+
+    .opening-title {
+        font-size: 2rem;
+    }
+
+    .birthday-title {
+        font-size: 2.1rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        max-width: 330px;
+        margin: auto;
+    }
+
+    .polaroid img {
+        height: 230px;
+    }
+
+    .envelope {
+        width: 210px;
+        height: 140px;
+    }
+
+    .envelope:before {
+        border-left-width: 105px;
+        border-right-width: 105px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     SCENE 1 — OPENING
+========================================= -->
+
+<section class="screen" id="opening">
+
+    <div class="card opening-content">
+
+        <div class="ribbon">🎀</div>
+
+        <div class="opening-small">
+            TO THE BIRTHDAY GIRL
+        </div>
+
+        <div class="opening-title">
+            嘿，寿星。
+        </div>
+
+        <div class="typing-line" id="openingText"></div>
+
+        <button
+            class="main-btn"
+            onclick="goEnvelope()">
+
+            点击这里 ♡
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SCENE 2 — ENVELOPE
+========================================= -->
+
+<section
+    class="screen hidden"
+    id="envelopeScreen">
+
+    <div class="card envelope-card">
+
+        <h2>💌 你有一封信</h2>
+
+        <p>
+            给今天最特别的寿星。
+        </p>
+
+        <div
+            class="envelope"
+            onclick="openBirthday()">
+
+            <div class="envelope-heart">
+                ♡
+            </div>
+
+        </div>
+
+        <small>
+            点击信封打开
+        </small>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SCENE 3 — BIRTHDAY
+========================================= -->
+
+<section
+    class="screen hidden"
+    id="birthdayScreen">
+
+    <div class="card birthday-card">
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <div class="birthday-title">
+            生日快乐！！
+        </div>
+
+        <div class="birthday-sub">
+
+            终于合法啦～ 🎉
+
+            <br>
+
+            希望从你正式成为“成年人”开始，
+            <br>
+            一切都会变得越来越好。
+
+        </div>
+
+
+
+        <!-- =========================
+             PHOTOS
+        ========================== -->
+
+        <h2 class="section-title">
+            📸 一些小小的回忆
+        </h2>
+
+        <div class="gallery">
+
+
+            <div class="polaroid">
+
+                <img
+                    src="https://lh3.googleusercontent.com/d/1Nq53AaHYOd6KZQ-sAH3wuG3VVUX1wA9t"
+                    alt="照片1">
+
+                <div class="caption">
+                    可爱的！！🤭
+                </div>
+
+            </div>
+
+
+            <div class="polaroid">
+
+                <img
+                    src="https://lh3.googleusercontent.com/d/1tszZBeUU5O1x_wE2bJ5oF6CuROoH9LIs"
+                    alt="照片2">
+
+                <div class="caption">
+                    我们当时在参加十一年级博览会！！🤙🤪
+                </div>
+
+            </div>
+
+
+            <div class="polaroid">
+
+                <img
+                    src="https://lh3.googleusercontent.com/d/1Ir8Jl57k-WgmmMU5xuIq3LHJcXP6YEwU"
+                    alt="照片3">
+
+                <div class="caption">
+                    睡个好觉～ 🥱💤
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             LETTER
+        ========================== -->
+
+        <div class="letter-section">
+
+            <h2 class="section-title">
+                💌 给你的信
+            </h2>
+
+            <div class="letter-paper">
+
+                <div id="typedLetter"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             GIFT
+        ========================== -->
+
+        <div class="gift-section">
+
+            <h2 class="section-title">
+                🎁 还有一个东西……
+            </h2>
+
+            <p>
+                先别急着关掉哦。
+            </p>
+
+            <div
+                class="gift"
+                onclick="openGift()">
+
+                🎁
+
+            </div>
+
+            <small>
+                点击看看 ♡
+            </small>
+
+
+            <div
+                id="finalMessage"
+                class="final-message hidden">
+
+                <h2>
+                    Surprise ♡
+                </h2>
+
+                <p>
+
+                    希望未来的每一年，<br>
+                    你都可以遇到很多很多值得开心的事情。
+
+                    <br><br>
+
+                    好好长大，<br>
+                    慢慢成为自己想成为的人。
+
+                </p>
+
+                <div class="signature">
+
+                    来自你的朋友——<br>
+                    Shinyu的女朋友 ♡♡
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =========================================
+   OPENING TEXT
+========================================= */
+
+const openingWords = [
+    "今天是你的生日，对吧？",
+    "所以……我准备了一个小东西。",
+    "不许提前偷看哦 👀"
+];
+
+let openingIndex = 0;
+
+function typeOpening() {
+
+    if (openingIndex >= openingWords.length) {
+        return;
+    }
+
+    const element =
+        document.getElementById("openingText");
+
+    let text =
+        openingWords[openingIndex];
+
+    let i = 0;
+
+    element.innerHTML = "";
+
+    const interval =
+        setInterval(() => {
+
+            element.innerHTML += text[i];
+
+            i++;
+
+            if (i >= text.length) {
+
+                clearInterval(interval);
+
+                openingIndex++;
+
+                setTimeout(
+                    typeOpening,
+                    900
+                );
+
+            }
+
+        }, 75);
+}
+
+typeOpening();
+
+
+
+/* =========================================
+   GO TO ENVELOPE
+========================================= */
+
+function goEnvelope() {
+
+    document
+        .getElementById("opening")
+        .classList.add("hidden");
+
+    document
+        .getElementById("envelopeScreen")
+        .classList.remove("hidden");
+
+}
+
+
+
+/* =========================================
+   OPEN BIRTHDAY
+========================================= */
+
+function openBirthday() {
+
+    document
+        .getElementById("envelopeScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("birthdayScreen")
+        .classList.remove("hidden");
+
+    createConfetti();
+
+    setTimeout(
+        typeLetter,
+        700
+    );
+
+    startHearts();
+
+}
+
+
+
+/* =========================================
+   LETTER TYPING
+========================================= */
+
+const letterText = `生日快乐！！
+
+终于合法啦！太好了～
+
+希望从你正式成为“成年人”开始，
+一切都会变得越来越好。
+
+这是我们高中时代最后一个一起度过的生日，
+但这并不代表这是我们最后一年做朋友，
+也不代表这是我们最后一次一起庆祝生日。
+
+希望你一直做自己，
+也希望你以后还愿意继续 me做朋友。
+
+谢谢你一直以来的陪伴。
+
+最后，再说一次——
+
+生日快乐！！🎂💗`;
+
+function typeLetter() {
+
+    const element =
+        document.getElementById("typedLetter");
+
+    let i = 0;
+
+    const interval =
+        setInterval(() => {
+
+            element.innerHTML +=
+                letterText[i];
+
+            i++;
+
+            if (i >= letterText.length) {
+
+                clearInterval(interval);
+
+            }
+
+        }, 35);
+
+}
+
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+function openGift() {
+
+    const message =
+        document.getElementById("finalMessage");
+
+    message.classList.remove("hidden");
+
+    createConfetti();
+
+    startHearts();
+
+}
+
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti() {
+
+    const symbols = [
+        "🎉",
+        "✨",
+        "🎀",
+        "💗",
+        "🌸",
+        "♡"
+    ];
+
+    for (
+        let i = 0;
+        i < 70;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className =
+            "confetti";
+
+        piece.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (10 + Math.random() * 15)
+            + "px";
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3)
+            + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 5500);
+
+    }
+
+}
+
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+let heartInterval;
+
+function startHearts() {
+
+    if (heartInterval) return;
+
+    heartInterval =
+        setInterval(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.innerHTML =
+                Math.random() > .5
+                ? "♡"
+                : "♥";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (14 + Math.random() * 18)
+                + "px";
+
+            heart.style.color =
+                "#e99ab4";
+
+            document.body.appendChild(
+                heart
+            );
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 5000);
+
+        }, 850);
+
+}
+
+</script>
+
+</body>
+          </html>
